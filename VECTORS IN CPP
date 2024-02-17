@@ -1,0 +1,103 @@
+Vectors are the same as dynamic arrays with the ability to resize itself automatically when an element is inserted or deleted, with their storage being handled automatically by the container. Vector elements are placed in contiguous storage so that they can be accessed and traversed using iterators. In vectors, data is inserted at the end. Inserting at the end takes differential time, as sometimes the array may need to be extended. Removing the last element takes only constant time because no resizing happens. Inserting and erasing at the beginning or in the middle is linear in time.
+
+std::vector in C++ is the class template that contains the vector container and its member functions. It is defined inside the <vector> header file. The member functions of std::vector class provide various functionalities to vector containers. Some commonly used member functions are written below:
+
+Iterators
+begin() – Returns an iterator pointing to the first element in the vector
+end() – Returns an iterator pointing to the theoretical element that follows the last element in the vector
+rbegin() – Returns a reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+rend() – Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
+cbegin() – Returns a constant iterator pointing to the first element in the vector.
+cend() – Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
+crbegin() – Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+crend() – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
+
+arrays are constant in nature that s we cant change the size of the array
+but vectors are dynamic in nature we can the size of the vectors as per our need anytime
+
+//declaring a vector
+vector<datatype>vector_name;
+vector<int>v;
+
+//entering values in it
+vector_name.push_back(value);
+v.push_back(1)//this line enter 1 into the vector
+
+v.emplace_back(2); //this dynamically increases its size and inserts 2 at the back
+
+***emplace_back is faster than push_back
+
+we can enter a pair into the vector
+vector<pair<int ,int>>vec;
+v.push_back({1,2});
+v.emplace_back(1,2) //in case of emplace_back we can write pair without curly bracket
+
+
+vector<int>v(5 , 100);//this means vector of size 5 containing 100 at every index
+
+vector<int>v(5);//this means vector of size 5 containing any garbage value at every index
+
+COPYING A VECTOR INTO ANOTHER VECTOR
+vector<int>v1(5,20);
+vector<int>v2(v1);//copying v1 vector into v2
+
+ACCESING ELEMENT OF VECTOR THROUGH ITERATOR
+
+vector<int>::iterator iterator_name=v.begin();
+iterator_name++;
+cout<<*(iterator_name)<<" ";
+basically v.begin() points to the memory adress of the element so to print the element of the vector we have to put the * before iterator
+
+vector<int>::iterator it=v.begin();
+it++
+cout<<*(it)<<" ";//this will print the element in the vector
+
+
+
+OTHER ITERATORS
+vector<int>::iterator it=v.end(); end point to the memory adress of the vector right after the last element of the vector so we have to do it-- then it reach the last element
+
+v.back() //it points to last element of the vector
+
+ ITERATING THROUGH VECTOR
+for(auto it=v.begin(); it!=v.end();it++){
+     cout<<*(it)<<" ";
+}//auto keyword assign datatype automatically
+
+
+for(auto it:v){
+   cout<<it<<" ";
+}
+
+
+DELETION IN A VECTOR
+v.erase(v.begin()+1);//10 20 12 23//output:10 12 23
+
+v.erase(v.begin()+2,v.begin()+4);//10 20 12 23 35
+10 20 35   
+
+
+INSERT IN A VECTOR
+
+vector<int>v(2,100);//{100,100}
+v.insert{v.begin(),300);//{300,100,100}
+v.insert(v.begin()+1,2,10);//{300,10,10,100,100}
+
+INSERING A VECTOR IN ANOTHER VECTOR
+vector<int>copy(2,50);//{50,50}
+v.insert(v.begin(),copy.begin(),copy.end());//{50,50,300,10,10,100,100}
+
+
+v.size()//gives number of elements in a vector
+v.pop_back()//pops out the last element from the vector
+//{10,20,30} //output is:{10,20}
+
+//v1->{10,20}
+//v2->{30,40}
+v1.swap(v2);//output is:v1->{30,40}
+v2->{10,20}
+
+v.clear()//clear the entire vector
+
+v.empty()//say true or false whether a vector is full or empty. 
+
