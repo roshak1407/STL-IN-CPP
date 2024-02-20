@@ -1,0 +1,63 @@
+Stacks are a type of container adaptors with LIFO(Last In First Out) type of working, where a new element is added at one end (top) and an element is removed from that end only.  Stack uses an encapsulated object of either vector or deque (by default) or list (sequential container class) as its underlying container, providing a specific set of member functions to access its elements. 
+
+If there is confusion in remembering the basic difference between stack and queue, then just have a real life example for this differentiation, for stack, stacking of books we can take the top book easily and for queue remember when you have to stand in queue front of ATM for taking out the cash, then first person near to ATM has the first chance to take out the money from ATM. So, queue is the FIFO (First In First Out) type working.
+
+Type – is the Type of element contained in the std::stack. It can be any valid C++ type or even a user-defined type.
+
+Container – is the Type of underlying container object.
+
+Member Types:-
+
+value_type- The first template parameter, T. It denotes the element types.
+
+container_type- The second template parameter, Container. It denotes the underlying container type.
+
+size_type- Unsigned integral type.
+  
+The functions associated with stack are: 
+empty() – Returns whether the stack is empty – Time Complexity : O(1) 
+size() – Returns the size of the stack – Time Complexity : O(1) 
+top() – Returns a reference to the top most element of the stack – Time Complexity : O(1) 
+push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1) 
+pop() – Deletes the most recent entered element of the stack – Time Complexity : O(1) 
+
+
+stack<int>stack_name;//declaration
+stack<int>st;
+
+st.push(1);//{1}
+st.push(2);//{2,1}
+st.push(3);//{3,2,1}
+st.push(3);//{3,3,2,1}
+st.emplace(5);//{5,3,3,2,1}
+
+st.top();// returns 5
+
+st.pop();//pops out the topmost element//{3,3,2,1}
+
+st.size();//returns size of stack
+
+st.empty();return T/F whether stack is empty or not
+
+stack<int>st1,st2;
+st1.swap(st2);
+
+
+QUEUE (FIFO)
+
+queue<int>q;//declaration
+q.push(1);//{1}
+q.push(2);//{1,2}
+q.emplace(4);{1,2,4}
+
+q.back()+=5
+cout<<q.back();//returns 9
+
+cout<<q.front();//prints 1
+
+q.pop();//pop out the first element//{2,4}
+
+swapping same as stack and vectors
+
+
+ 
